@@ -1,0 +1,47 @@
+.detail{
+  margin: 20px 20px 0 0;  
+  overflow: auto
+}
+.detailHeading{
+  font-size:24px ;
+  text-align: center;
+}
+.detailImg{
+  float: left;
+  margin-left: 1%;
+  margin-right: 2%;
+}
+.detailImg Image {
+  display: block
+}
+.description{
+  margin-top: 2%;
+  font-size: 18px;
+}
+.detailPrice{
+  color: #6c63ff;
+  margin-top: 5%;
+  font-size:22px;
+}
+@media only screen and (max-width: 1024px) {
+  .detail{
+    text-align: center;
+  }
+  .detailPrice{
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .detail{
+    text-align: center;
+  }
+  .detailHeading{
+    font-size:24px ;
+  }
+  .detailPrice{
+    text-align: center;
+  }
+  .description{
+    font-size: 20px;
+  }
+} 
