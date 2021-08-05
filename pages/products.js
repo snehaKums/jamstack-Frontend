@@ -2,8 +2,11 @@ import React,{ useState, useEffect } from 'react';
 import axios from 'axios';
 import Product from '../components/Product/Product';
 import SearchAndFilter from '../components/SearchFilter/SearchFilter';
+import Layout from '../components/Layout';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 
-export default function App({products}) {
+export default function Products({products,mainData,url}) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     const [q, setQ] = useState("");
@@ -46,24 +49,18 @@ export default function App({products}) {
         return <>Loading...</>;
     } else {
         return (
-            <div className="wrapper">
-                <SearchAndFilter value={q} search={(e) => setQ(e.target.value)} filter={(e) => {setFilterParam(e.target.value)}} />
-                <Product postNum={postNum} search={search(items)}/>
-                    <div style={{textAlign:'center'}}>
-                        {(items.length -postNum) < 1 || filterParam != "All" ? null : <button className="button" onClick={handleClick}>Load More</button>}
-                    </div>
-        </div>
+            <Layout pageTitle="ShopSite">
+                <Header  data={mainData.Header} />
+                <div className="wrapper">
+                    <SearchAndFilter value={q} search={(e) => setQ(e.target.value)} filter={(e) => {setFilterParam(e.target.value)}} />
+                    <Product postNum={postNum} search={search(items)} url={url} />
+                        <div style={{textAlign:'center'}}>
+                            {(items.length -postNum) < 1 || filterParam != "All" ? null : <button className="button" onClick={handleClick}>Load More</button>}
+                        </div>
+                </div>
+                <Footer data={mainData.Header} />
+            </Layout>
         
         );
     }
 }
-
-export async function getStaticProps(){
-    const res = await axios.get(process.env.API_MAIN_URL);
-    const products = res.data;
-    return {  
-      props:{
-        products
-      }
-    };
-  }

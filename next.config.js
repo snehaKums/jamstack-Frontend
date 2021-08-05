@@ -1,5 +1,5 @@
 module.exports = {
     images: {
-        domains: ['fakestoreapi.com']
+        domains: ['pure-dawn-42818.herokuapp.com']
     }
 };

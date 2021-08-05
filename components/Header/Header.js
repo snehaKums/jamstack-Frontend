@@ -3,29 +3,25 @@ import {NavLink} from 'reactstrap';
 import Image from 'next/image';
 import styles from './header.module.css'
 
-const Header = () => {
+const Header = ({data}) => {
   
   return (
-    <div className={styles.header}>
-               <div className={styles.imgDiv}>
-                  <Image
+<div className={styles.header}>
+            <div className={styles.imgDiv}>
+                   <Image
                         alt='Logo img'
                         src="/logo.png"
                         width={100}
                         height={100}
                   />
-               </div>
-                <NavLink href={'/'} className={styles.headerLink} >
-                    Home
-                </NavLink>
-                <NavLink href={'/products'} className={styles.headerLink} >
-                  Products
-                </NavLink>
-                <NavLink href={'/about'} className={styles.headerLink} >
-                    About Us
-                </NavLink>
-                
-    </div>
+            </div>
+     {data.map( data => (
+       <NavLink href={'/content/' + data.navId} className={styles.headerLink} key={data.id}>
+         {data.navLabel}
+       </NavLink>
+      ))}
+     
+</div>
   );
 }
 

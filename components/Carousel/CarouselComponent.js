@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import {Carousel,CarouselItem,CarouselControl,CarouselIndicators} from 'reactstrap';
-import items from './data';
 
-const CarouselComponent = () => {
+const CarouselComponent = ({data,url}) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
+    let items= data.img
   
     const next = () => {
       if (animating) return;
@@ -29,13 +29,14 @@ const CarouselComponent = () => {
         <CarouselItem
           onExiting={() => setAnimating(true)}
           onExited={() => setAnimating(false)}
-          key={item.src}
+          key={item.formats.medium.url}
         >
           <div className="carouselItem">
           <Image
-            src={item.src} alt={item.altText}
+            src={url+item.formats.medium.url}
+            alt={item.name}
             width={100}
-            height={20}
+            height={25}
             layout='responsive'
           />
           </div>

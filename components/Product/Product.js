@@ -3,8 +3,12 @@ import { Container, Row, Col } from 'reactstrap';
 import Image from 'next/image';
 import styles from './product.module.css'
 
-export default function Product({postNum,search}){
+export default function Product({postNum,search,url}){
     return(
+       <div>
+            {search.length === 0 ?
+            <h1 className={styles.noDataFound}>No Data Found</h1>
+        :
         <Container fluid>
                     <Row>
                         <Col xs={12} sm={12} md={12} lg={12}>
@@ -13,8 +17,8 @@ export default function Product({postNum,search}){
                             <Col key={item.id} md={4} lg={3}>
                                 <div className={styles.card}>
                                 <Image
-                                    alt='Logo img'
-                                    src={item.image[0].name}
+                                    alt={item.image.name}
+                                    src={url+item.image.formats.small.url}
                                     width={150}
                                     height={170}
                                     />
@@ -30,5 +34,7 @@ export default function Product({postNum,search}){
                         </Col>
                     </Row>
             </Container>
+            }
+      </div>
     )
 }

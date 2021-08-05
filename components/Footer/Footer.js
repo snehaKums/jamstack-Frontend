@@ -1,10 +1,10 @@
 import styles from './footer.module.css'
 
-const Footer = () => {
+const Footer = ({data}) => {
 
   return (
     <footer className={styles.footer}>
-      <p className={styles.footerText} >@ Copyright 2021</p>
+      <p className={styles.footerText} >{data.footerText}</p>
     </footer>
   );
 };

@@ -23,11 +23,26 @@
   color: white;
   padding: 8px 15px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
   border-radius: 8px;
   margin-top: 5px;
   text-align: center;
 }
+.detailButton {
+  background-color: #6c63ff; 
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 8px;
+  margin-top: 5px;
+  text-align: center;
+}
+.noDataFound{
+  text-align: center;
+  padding-top: 5%;
+ }
 @media only screen and (max-width: 1024px) {
   .cardText{
     font-size: 22px;
@@ -49,4 +64,8 @@
     font-size: 18px;
     margin-right: 8px;
   }
+  .noDataFound{
+    text-align: center;
+    padding-top:0;
+   }
 } 

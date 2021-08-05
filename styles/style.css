@@ -8,11 +8,12 @@ body {
 .aboutHeader{
   font-size: 32px;
 }
-.aboutSubHeader{
+.subHeader{
   margin-top: 2%;
   font-size: 28px;
+  font-weight: bold;
 }
-.aboutText{
+.desp{
   margin-top: 2%;
   font-size: 22px;
   letter-spacing: .448px;
@@ -37,23 +38,64 @@ body {
   margin-top: 30px;
   text-align: center;
 }
-.noDataFound{
-  text-align: center;
-  padding-top: 5%;
- }
  .wrapper{
    margin-top: -3.5%;
  }
+ .heroComponent,.articleComponent{
+  display: flex;
+  position: relative;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+.textStyle{
+  width: 55%;
+  height: 50%;
+  padding-top: 10%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.imgStyle{
+  width: 40%;
+  height: 50%;
+  padding-top: 3%;
+}
+.descp{
+  font-size: 24px;
+  letter-spacing: .448px;
+  line-height: 30px;
+}
+.pb {
+  background-color: #6c63ff;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size:22px;
+  margin: 4px 2px;
+  cursor: pointer;
+  height: 10%;
+  margin-top: 3%;
+  border-radius: 8px;
+}
 @media only screen and (max-width: 1024px) {
   .button{
     margin-bottom: 20px;
+  }
+  .imgStyle{
+    padding-top: 6%;
+  }
+  .pb{
+    margin-top: 5%;
+    margin-right: 5%;
   }
 }
  @media only screen and (max-width: 600px) {
   .aboutHeader{
     text-align: center;
   }
-  .aboutSubHeader{
+  .subHeader{
     text-align: center;
   }
   .card-horizontal{
@@ -72,9 +114,36 @@ body {
     font-size: 18px;
     margin-right: 8px;
   }
-  .noDataFound{
+  .heroComponent,.articleComponent{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .textStyle{
+    width: 90%;
+    padding-top: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
+    order: 1;
+  }
+  .imgStyle{
+    padding-top: 6%;
+    order: 2;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 100%;
+  }
+  .descp{
+    font-size: 18px;
     text-align: center;
-    padding-top:0;
-   }
-
+  }
+  .pb{
+    margin:auto;
+    display:block;
+    order: 3;
+    font-size:16px;
+    padding: 10px 22px;
+    text-decoration: none;
+  }
 } 

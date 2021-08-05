@@ -4,11 +4,14 @@ import Layout from '../components/Layout';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
+// function MyApp({ Component, pageProps }) {
+//   return <Layout  pageTitle="ShopSite" >
+//     <Header />
+//         <Component {...pageProps} />
+//     <Footer />
+//   </Layout>
+// }
 function MyApp({ Component, pageProps }) {
-  return <Layout  pageTitle="ShopSite" >
-    <Header />
-        <Component {...pageProps} />
-    <Footer />
-  </Layout>
+  return <Component {...pageProps} />
 }
 export default MyApp
