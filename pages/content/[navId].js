@@ -41,7 +41,7 @@ const Details = ({data,mainData}) => {
       <Index homeData={data} mainData={mainData} />
     )
   }
-  if(data[0].id == 12){
+  if(data[0].id == 7){
     return(
         <Products products={data} mainData={mainData} url={url} />
     )
