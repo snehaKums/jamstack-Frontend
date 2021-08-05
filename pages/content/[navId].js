@@ -35,12 +35,12 @@ export const getStaticProps = async(context) =>{
 }
 
 const Details = ({data,mainData}) => {
-  if(data[0].id == 1){
+  if(data[0].title == "home"){
     return(
       <Index homeData={data} mainData={mainData} />
     )
   }
-  if(data[0].category == 'womenwear'|| 'electronics' || 'jewelery' || 'menswear'){
+  if(data[0].name == "products"){
     return(
         <Products products={data} mainData={mainData} />
     )
