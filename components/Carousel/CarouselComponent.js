@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import {Carousel,CarouselItem,CarouselControl,CarouselIndicators} from 'reactstrap';
 
-const CarouselComponent = ({data,url}) => {
+const CarouselComponent = ({data}) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
     let items= data.img
@@ -33,7 +33,7 @@ const CarouselComponent = ({data,url}) => {
         >
           <div className="carouselItem">
           <Image
-            src={url+item.formats.medium.url}
+            src={item.formats.medium.url}
             alt={item.name}
             width={100}
             height={20}

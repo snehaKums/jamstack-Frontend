@@ -7,13 +7,12 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
 const Home = ({homeData,mainData}) => {
-  let mainUrl = 'https://pure-dawn-42818.herokuapp.com';
   return (
    <Layout pageTitle="ShopSite">
      <Header data={mainData.Header} />
      <div style={{marginTop:'-2%'}}>
-        <CarouselComponent data={homeData[0].carousel} url={mainUrl} />
-        <ProductCategory products={homeData[0].categories} url={mainUrl} />
+        <CarouselComponent data={homeData[0].carousel}  />
+        <ProductCategory products={homeData[0].categories}  />
     </div>
      <Footer data={mainData.Footer} />
    </Layout>

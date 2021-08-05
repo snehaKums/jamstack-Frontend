@@ -35,15 +35,14 @@ export const getStaticProps = async(context) =>{
 }
 
 const Details = ({data,mainData}) => {
-  let url= 'https://pure-dawn-42818.herokuapp.com'
   if(data[0].id == 1){
     return(
       <Index homeData={data} mainData={mainData} />
     )
   }
-  if(data[0].id == 7){
+  if(data[0].category == 'womenwear'|| 'electronics' || 'jewelery' || 'menswear'){
     return(
-        <Products products={data} mainData={mainData} url={url} />
+        <Products products={data} mainData={mainData} />
     )
   }
   return (

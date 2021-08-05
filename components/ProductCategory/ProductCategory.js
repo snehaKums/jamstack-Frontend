@@ -1,7 +1,7 @@
 import styles from '../Product/product.module.css'
 import Image from 'next/image';
 
-const ProductCategory =({products,url}) => {
+const ProductCategory =({products}) => {
     return(
     <div>
     {products.map((data,index)=>(
@@ -10,7 +10,7 @@ const ProductCategory =({products,url}) => {
           <div className="imgStyle">
               <Image
                 alt={data.image.name}
-                src={url+data.image.formats.medium.url}
+                src={data.image.formats.medium.url}
                 width={600}
                 height={400}
               />
@@ -33,7 +33,7 @@ const ProductCategory =({products,url}) => {
           <div className="imgStyle">
                <Image
                 alt={data.image.name}
-                src={url+data.image.formats.medium.url}
+                src={data.image.formats.medium.url}
                 width={600}
                 height={400}
               />

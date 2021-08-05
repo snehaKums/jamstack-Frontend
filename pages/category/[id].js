@@ -51,7 +51,7 @@ const Details = ({data,mainData}) => {
                     <div className={styles.card}>
                     <Image
                         alt={item.image.name}
-                        src={'https://pure-dawn-42818.herokuapp.com'+item.image.formats.small.url}
+                        src={item.image.formats.small.url}
                         width={200}
                         height={200}
                         />

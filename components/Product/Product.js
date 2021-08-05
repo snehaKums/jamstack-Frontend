@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Image from 'next/image';
 import styles from './product.module.css'
 
-export default function Product({postNum,search,url}){
+export default function Product({postNum,search}){
     return(
        <div>
             {search.length === 0 ?
@@ -18,7 +18,7 @@ export default function Product({postNum,search,url}){
                                 <div className={styles.card}>
                                 <Image
                                     alt={item.image.name}
-                                    src={url+item.image.formats.small.url}
+                                    src={item.image.formats.small.url}
                                     width={150}
                                     height={170}
                                     />

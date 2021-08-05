@@ -35,7 +35,6 @@ export const getStaticProps = async(context) =>{
 }
 
 const Details = ({data,mainData}) => {
-  let url= 'https://pure-dawn-42818.herokuapp.com'
   return (
     <div>
         <Header data={mainData.Header} />
@@ -44,7 +43,7 @@ const Details = ({data,mainData}) => {
             <div className={styles.detailImg}>
             <Image
                    alt={data.image.name}
-                   src={url+data.image.formats.small.url}
+                   src={data.image.formats.small.url}
                   width={400}
                   height={400}
             />

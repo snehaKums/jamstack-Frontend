@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
-export default function Products({products,mainData,url}) {
+export default function Products({products,mainData}) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     const [q, setQ] = useState("");
@@ -53,7 +53,7 @@ export default function Products({products,mainData,url}) {
                 <Header  data={mainData.Header} />
                 <div className="wrapper">
                     <SearchAndFilter value={q} search={(e) => setQ(e.target.value)} filter={(e) => {setFilterParam(e.target.value)}} />
-                    <Product postNum={postNum} search={search(items)} url={url} />
+                    <Product postNum={postNum} search={search(items)} />
                         <div style={{textAlign:'center'}}>
                             {(items.length -postNum) < 1 || filterParam != "All" ? null : <button className="button" onClick={handleClick}>Load More</button>}
                         </div>
