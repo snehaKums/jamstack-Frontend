@@ -10,7 +10,7 @@ const ProductCategory =({products}) => {
           <div className="imgStyle">
               <Image
                 alt={data.image.name}
-                src={data.image.formats.medium.url}
+                src={data.image.formats.small.url}
                 width={600}
                 height={400}
               />
@@ -33,7 +33,7 @@ const ProductCategory =({products}) => {
           <div className="imgStyle">
                <Image
                 alt={data.image.name}
-                src={data.image.formats.medium.url}
+                src={data.image.formats.small.url}
                 width={600}
                 height={400}
               />

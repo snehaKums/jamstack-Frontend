@@ -29,11 +29,11 @@ const CarouselComponent = ({data}) => {
         <CarouselItem
           onExiting={() => setAnimating(true)}
           onExited={() => setAnimating(false)}
-          key={item.formats.medium.url}
+          key={item.formats.small.url}
         >
           <div className="carouselItem">
           <Image
-            src={item.formats.medium.url}
+            src={item.formats.small.url}
             alt={item.name}
             width={100}
             height={20}
