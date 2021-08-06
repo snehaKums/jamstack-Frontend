@@ -42,7 +42,7 @@ const Details = ({data,mainData}) => {
   return (
     <div>
       <Header data={mainData.Header} />
-        <Container fluid >
+        <Container fluid style={{marginTop:'-5%'}} >
         <Row>
             <Col xs={12} sm={12} md={12} lg={12}>
             <Row style={{marginTop:'2%'}}>                    
@@ -52,8 +52,8 @@ const Details = ({data,mainData}) => {
                     <Image
                         alt={item.image.name}
                         src={item.image.formats.small.url}
-                        width={200}
-                        height={200}
+                        width={150}
+                        height={170}
                         />
                         <h1 className={styles.cardText}>{item.title}</h1>
                         <p className={styles.cardSubtext}>Price: $ {item.price}</p>
