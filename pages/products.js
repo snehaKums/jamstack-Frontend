@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
-export default function Products({products,mainData}) {
+export default function Products({data,mainData,header}) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     const [q, setQ] = useState("");
@@ -16,7 +16,7 @@ export default function Products({products,mainData}) {
 
     useEffect(() => {
             setIsLoaded(true);
-            setItems(products);
+                setItems(data);
     }, []);
 
     function search(items) {
@@ -50,7 +50,7 @@ export default function Products({products,mainData}) {
     } else {
         return (
             <Layout pageTitle="ShopSite">
-                <Header  data={mainData.Header} />
+                <Header  data={mainData} />
                 <div className="wrapper">
                     <SearchAndFilter value={q} search={(e) => setQ(e.target.value)} filter={(e) => {setFilterParam(e.target.value)}} />
                     <Product postNum={postNum} search={search(items)} />
@@ -58,7 +58,12 @@ export default function Products({products,mainData}) {
                             {(items.length -postNum) < 1 || filterParam != "All" ? null : <button className="button" onClick={handleClick}>Load More</button>}
                         </div>
                 </div>
-                <Footer data={mainData.Header} />
+                {header.map( data => (
+                    (data.__component == "select.footer") ? 
+                        <Footer data={data} /> 
+                    : 
+                    null
+                 ))}
             </Layout>
         
         );

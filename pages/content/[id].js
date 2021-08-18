@@ -3,10 +3,11 @@ import Index from '../index';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Products from '../products';
+import Other from '../other';
 
 export const getStaticPaths = async () => {
   const res = await axios.get(process.env.API_MAIN_URL);
-  const navData = res.data.Header;
+  const navData = res.data;
 
   let arr= [];
   for(let i=0;i<navData.length;i++){
@@ -14,7 +15,7 @@ export const getStaticPaths = async () => {
   }
   const paths = arr.map(data=>{
       return {
-        params: {navId:data.navId.toString()}
+        params: {id:data.id.toString()}
       }
   })
   return{
@@ -24,8 +25,8 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async(context) =>{
-  const navUrl = context.params.navId;
-  const res = await axios.get(process.env.API_URL+'/'+navUrl);
+  const navUrl = context.params.id;
+  const res = await axios.get(process.env.API_MAIN_URL+'/'+navUrl);
   const resp = await axios.get(process.env.API_MAIN_URL);
   const data = res.data;
   const mainData= resp.data
@@ -33,25 +34,19 @@ export const getStaticProps = async(context) =>{
     props:{data,mainData}
   }
 }
-
-const Details = ({data,mainData}) => {
-  if(data[0].title == "home"){
+function Details({data,mainData}) {
+  if(data.title == "Home"){
     return(
-      <Index homeData={data} mainData={mainData} />
+      <Index homeData={data.components} mainData={mainData} />
     )
   }
-  if(data[0].name == "products"){
+  if(data.title == "Products"){
     return(
-        <Products products={data} mainData={mainData} />
+        <Products data={data.products} mainData={mainData} header={data.components}  />
     )
   }
   return (
-    <div>
-    <Header data={mainData.Header} />
-      <p className="subHeader">{data[0].title}</p>
-      <p className="desp">{data[0].description}</p>
-    <Footer data={mainData.Footer} />
-  </div>
+    <Other aboutData={data.components} mainData={mainData} fun={data} />
   );
 
 }

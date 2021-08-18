@@ -16,8 +16,8 @@ const Header = ({data}) => {
                   />
             </div>
      {data.map( data => (
-       <NavLink href={'/content/' + data.navId} className={styles.headerLink} key={data.id}>
-         {data.navLabel}
+       <NavLink href={'/content/' + data.id} className={styles.headerLink} key={data.id}>
+         {data.title}
        </NavLink>
       ))}
      

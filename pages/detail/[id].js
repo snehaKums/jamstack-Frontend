@@ -25,33 +25,42 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async(context) =>{
   const productId = context.params.id;
-  const res = await axios.get(process.env.API_PRODUCTS_URL+'/'+productId);
-  const data = res.data;
+  const res = await axios.get(process.env.API_MAIN_URL+'/3');
+  const data = res.data.products;
+  console.log('000'+data[0].id)
   const resp = await axios.get(process.env.API_MAIN_URL);
   const mainData= resp.data
-  return{
-    props:{data,mainData}
-  }
+    for(let i=0;i<data.length;i++){
+      const product = data[i]
+      if(productId == product.id ){
+        return{
+          props:{product,mainData}
+        }}
+    }
 }
-
-const Details = ({data,mainData}) => {
+const Details = ({product,mainData}) => {
   return (
     <div>
-        <Header data={mainData.Header} />
+        <Header data={mainData} />
           <div className={styles.detail}>
-            <h1 className={styles.detailHeading}>{data.title}</h1>
+            <h1 className={styles.detailHeading}>{product.title}</h1>
             <div className={styles.detailImg}>
             <Image
-                   alt={data.image.name}
-                   src={data.image.formats.small.url}
+                   alt={product.image.name}
+                   src={product.image.formats.small.url}
                   width={400}
                   height={400}
             />
             </div>
-            <p className={styles.detailPrice}>Price : $ {data.price}</p>
-            <p className={styles.description}>{data. description}</p>
+            <p className={styles.detailPrice}>Price : $ {product.price}</p>
+            <p className={styles.description}>{product.description}</p>
           </div>
-        <Footer data={mainData.Footer} />
+          {mainData[0].components.map( data => (
+              (data.__component == "select.footer") ? 
+                <Footer data={data} /> 
+              : 
+              null
+          ))}
     </div>
   );
 

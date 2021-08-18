@@ -1,11 +1,11 @@
 import styles from '../Product/product.module.css'
 import Image from 'next/image';
 
-const ProductCategory =({products}) => {
+const ProductCategory =({data}) => {
     return(
     <div>
-    {products.map((data,index)=>(
-        index % 2 ?
+    {
+        data.id % 2 ?
         <div className="articleComponent">
           <div className="imgStyle">
               <Image
@@ -39,7 +39,7 @@ const ProductCategory =({products}) => {
               />
           </div>
         </div>
-    ))}
+    }
      </div>
     )
 }

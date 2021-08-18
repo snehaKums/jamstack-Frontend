@@ -6,42 +6,44 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
 export const getStaticPaths = async () => {
-    const res = await axios.get(process.env.API_CATEGORY_URL);
-    const products = res.data;
+    const res = await axios.get(process.env.API_MAIN_URL);
+    const data = res.data;
     let arr=[]
-    for(let i=0;i<products[0].categories.length;i++){
-      arr.push(products[0].categories[i]);
+    for(let n=0; n<data.length;n++){
+      for(let i=0;i<data[n].components.length;i++){
+        arr.push(data[n].components[i]);
+      }
     }
     const paths = arr.map(data=>{
-        return {
-          params: {id:data.id.toString()}
-        }
-    })
-    return{
-        paths,
-        fallback: false
+      return {
+        params: {id:data.id.toString()}
       }
+  })
+  return{
+      paths,
+      fallback: false
+    }
 }
 
 export const getStaticProps = async(context) =>{
   const categoryId = context.params.id;
-  const res = await axios.get(process.env.API_CATEGORY_URL);
-  const products = res.data;
-  const resp = await axios.get(process.env.API_MAIN_URL);
-  const mainData= resp.data
-    for(let i=0;i<products[0].categories.length;i++){
-      const data = products[0].categories[i]
+  const res = await axios.get(process.env.API_MAIN_URL);
+  const mainData = res.data;
+  for(let n=0; n<mainData.length;n++){
+    for(let i=0;i<mainData[n].components.length;i++){
+      const data = mainData[n].components[i]
       if(categoryId == data.id ){
         return{
           props:{data,mainData}
         }}
     }
+  }
 }
 
 const Details = ({data,mainData}) => {
   return (
     <div>
-      <Header data={mainData.Header} />
+      <Header data={mainData} />
       {data.products.length === 0 ?
             <h1 className={styles.noDataFound}>No Products found in this category</h1>
         :
@@ -71,7 +73,12 @@ const Details = ({data,mainData}) => {
         </Row>
       </Container>
       }
-    <Footer data={mainData.Footer} />
+    {mainData[0].components.map( data => (
+              (data.__component == "select.footer") ? 
+                <Footer data={data} /> 
+              : 
+              null
+    ))}
   </div>
   );
 
