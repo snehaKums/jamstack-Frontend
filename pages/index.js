@@ -16,21 +16,31 @@ const Home = ({homeData,mainData}) => {
          (data.__component == "select.carousel") ? 
          <CarouselComponent data={data} />
          : 
+          null
+      ))}
+       {homeData.map( data => (
          (data.__component == "select.categories") ?
          <ProductCategory data={data}  />
          :
-         <div>
-           <h3>{data.heading}</h3>
-           <h2>{data.subHeading}</h2>
-           <p>{data.description}</p>
-           {/* <Image
-              alt={data.image.name}
-              src={data.image.formats.small.url}
-              width={50}
-              height={70}
-            /> */}
-         </div>
+         null
        ))}
+       {homeData.map( data => (
+          (data.__component == "select.rich-text") ? 
+            <div>
+              <h3>{data.heading}</h3>
+              <h2>{data.subHeading}</h2>
+              <p>{data.description}</p>
+              {/* <Image
+                alt={data.image.name}
+                src={data.image.formats.small.url}
+                width={50}
+                height={70}
+                /> */}
+            </div>
+                : 
+              null
+        ))}
+         
      </div>
       {homeData.map( data => (
           (data.__component == "select.footer") ? 

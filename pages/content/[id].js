@@ -46,7 +46,7 @@ function Details({data,mainData}) {
     )
   }
   return (
-    <Other aboutData={data.components} mainData={mainData} fun={data} />
+    <Other aboutData={data.components} mainData={mainData} data={data} />
   );
 
 }
