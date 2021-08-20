@@ -41,7 +41,7 @@ body {
  .wrapper{
    margin-top: -3.5%;
  }
- .heroComponent,.articleComponent{
+ .heroComponent,.articleComponent,.textDiv{
   display: flex;
   position: relative;
   margin-right: 2%;
@@ -54,10 +54,20 @@ body {
   padding-left: 1%;
   padding-right: 1%;
 }
+.textSide{
+  width: 55%;
+  height: 50%;
+  /* padding-left: 1%;
+  padding-right: 1%; */
+}
 .imgStyle{
   width: 40%;
   height: 50%;
   padding-top: 3%;
+}
+.imgSide{
+  width: 40%;
+  height: 50%;
 }
 .descp{
   font-size: 24px;
@@ -83,7 +93,7 @@ body {
   .button{
     margin-bottom: 20px;
   }
-  .imgStyle{
+  .imgStyle,.imgSide{
     padding-top: 6%;
   }
   .pb{
@@ -93,9 +103,6 @@ body {
 }
  @media only screen and (max-width: 600px) {
   .aboutHeader{
-    text-align: center;
-  }
-  .subHeader{
     text-align: center;
   }
   .card-horizontal{
@@ -114,7 +121,7 @@ body {
     font-size: 18px;
     margin-right: 8px;
   }
-  .heroComponent,.articleComponent{
+  .heroComponent,.articleComponent,.textDiv{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -126,7 +133,12 @@ body {
     padding-right: 1%;
     order: 1;
   }
-  .imgStyle{
+  .textSide{
+    width: 90%;
+    padding-top: 2%;
+    order: 1;
+  }
+  .imgStyle,.imgSide{
     padding-top: 6%;
     order: 2;
     margin-left: auto;

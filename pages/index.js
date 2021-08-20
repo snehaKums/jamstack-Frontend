@@ -26,16 +26,20 @@ const Home = ({homeData,mainData}) => {
        ))}
        {homeData.map( data => (
           (data.__component == "select.rich-text") ? 
-            <div>
-              <h3>{data.heading}</h3>
-              <h2>{data.subHeading}</h2>
-              <p>{data.description}</p>
-              {/* <Image
-                alt={data.image.name}
-                src={data.image.formats.small.url}
-                width={50}
-                height={70}
-                /> */}
+            <div className="textDiv">
+              <div className="textSide">
+                <p className="subHeader">{data.heading}</p>
+                <h3>{data.subHeading}</h3>
+                <p className="desp">{data.description}</p>
+              </div>
+              <div className="imgSide">
+                <Image
+                  alt={data.image.name}
+                  src={data.image.formats.small.url}
+                  width={50}
+                  height={70}
+                  />
+              </div>
             </div>
                 : 
               null
