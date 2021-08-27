@@ -36,7 +36,7 @@ const CarouselComponent = ({data}) => {
             src={item.formats.large.url}
             alt={item.name}
             width={1440}
-            height={400}
+            height={300}
             layout='responsive'
           />
           </div>

@@ -10,14 +10,14 @@ export default function ProductCategory({data}){
         {data.id % 2 ?
         <Container fluid>
         <Row>                    
-          <Col key={data.id} lg={6} style={{marginLeft:'50%',marginTop:'-41%'}}>
+          <Col key={data.id} lg={6} className={styles.colContainer}>
                 <div className={styles.card}>
                   <h1 className={styles.cardTitle}>{data.title}</h1>
                   <Image
                     alt={data.image.name}
                     src={data.image.formats.small.url}
-                    width={800}
-                    height={500}
+                    width={600}
+                    height={300}
                   />
                   <p className={styles.cardDetail}>{data.detail}</p>
                   <a href={'/category/' + data.id}>
@@ -36,8 +36,8 @@ export default function ProductCategory({data}){
                       <Image
                         alt={data.image.name}
                         src={data.image.formats.medium.url}
-                        width={800}
-                        height={500}
+                        width={600}
+                        height={300}
                       />
                       <p className={styles.cardDetail}>{data.detail}</p>
                       <a href={'/category/' + data.id}>

@@ -5,6 +5,10 @@
   border: 1px solid lightgray;
   border-radius: 12px;
  }
+ .colContainer{
+   margin-left: 50%;
+   margin-top: -465px;
+ }
  .cardText,.cardTitle,.cardDetail{
   font-size: 20px;
   overflow: hidden;
@@ -61,6 +65,10 @@
   .button{
     margin-bottom: 18px;
   }
+  .colContainer{
+    margin-left: 0;
+    margin-top: 0;
+  }
 }
 @media only screen and (max-width: 600px) {
   .cardText{
@@ -79,4 +87,14 @@
     text-align: center;
     padding-top:0;
    }
+   .colContainer{
+    margin-left: 0;
+    margin-top: 0;
+  }
+  @media only screen and (min-width:1000px) {
+    .colContainer{
+      margin-left: 50%;
+      margin-top: -40.5%;
+    }
+  }
 } 
