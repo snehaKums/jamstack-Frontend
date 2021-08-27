@@ -24,12 +24,14 @@ export default function Other({aboutData,mainData,data}) {
                         <p className="desp">{data.description}</p>
                         </div>
                         <div className="imgSide">
+                       {data.image ? 
                         <Image
-                            alt={data.image.name}
-                            src={data.image.formats.small.url}
-                            width={200}
-                            height={250}
-                            />
+                        alt={data.image.name}
+                        src={data.image.formats.small.url}
+                        width={200}
+                        height={250}
+                        />
+                    : null}
                         </div>
                     </div>
                     : 

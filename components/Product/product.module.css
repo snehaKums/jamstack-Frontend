@@ -5,7 +5,7 @@
   border: 1px solid lightgray;
   border-radius: 12px;
  }
- .cardText{
+ .cardText,.cardTitle,.cardDetail{
   font-size: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -13,11 +13,17 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
+.cardTitle{
+  font-size: 26px;
+}
+.cardDetail{
+  font-size: 20px;
+}
 .cardSubtext{
   font-size:16px;
   margin-bottom:2px;
 }
-.button {
+.button,.exploreButton {
   background-color: #6c63ff; 
   border: none;
   color: white;
@@ -27,6 +33,10 @@
   border-radius: 8px;
   margin-top: 5px;
   text-align: center;
+}
+.exploreButton{
+  font-size: 20px;
+  margin-top: -5px;
 }
 .detailButton {
   background-color: #6c63ff; 

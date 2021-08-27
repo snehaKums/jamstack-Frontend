@@ -1,47 +1,52 @@
-import styles from '../Product/product.module.css'
-import Image from 'next/image';
 
-const ProductCategory =({data}) => {
+import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
+import Image from 'next/image';
+import styles from '../Product/product.module.css'
+
+export default function ProductCategory({data}){
     return(
-    <div>
-    {
-        data.id % 2 ?
-        <div className="articleComponent">
-          <div className="imgStyle">
-              <Image
-                alt={data.image.name}
-                src={data.image.formats.small.url}
-                width={600}
-                height={400}
-              />
-          </div>
-          <div className="textStyle">
-                 <p className="descp">{data.detail}</p>
-              <a href={'/category/' + data.id}>
-                <button className="pb">{data.title}</button>
-              </a>
-          </div>
-        </div>
-        :
-        <div className="heroComponent">
-          <div className="textStyle">
-              <p className="descp">{data.detail}</p>
-              <a href={'/category/' + data.id}>
-                <button className="pb">{data.title}</button>
-              </a>
-          </div>
-          <div className="imgStyle">
-               <Image
-                alt={data.image.name}
-                src={data.image.formats.small.url}
-                width={600}
-                height={400}
-              />
-          </div>
-        </div>
-    }
-     </div>
+       <div>
+        {data.id % 2 ?
+        <Container fluid>
+        <Row>                    
+          <Col key={data.id} lg={6} style={{marginLeft:'50%',marginTop:'-41%'}}>
+                <div className={styles.card}>
+                  <h1 className={styles.cardTitle}>{data.title}</h1>
+                  <Image
+                    alt={data.image.name}
+                    src={data.image.formats.small.url}
+                    width={800}
+                    height={500}
+                  />
+                  <p className={styles.cardDetail}>{data.detail}</p>
+                  <a href={'/category/' + data.id}>
+                    <button className={styles.exploreButton}>Explore {data.title}</button>
+                  </a>
+                </div>
+          </Col>
+        </Row>
+    </Container>
+    :
+    <Container fluid>
+            <Row>                    
+              <Col key={data.id} lg={6}>
+                    <div className={styles.card}>
+                      <h1 className={styles.cardTitle}>{data.title}</h1>
+                      <Image
+                        alt={data.image.name}
+                        src={data.image.formats.small.url}
+                        width={800}
+                        height={500}
+                      />
+                      <p className={styles.cardDetail}>{data.detail}</p>
+                      <a href={'/category/' + data.id}>
+                        <button className={styles.exploreButton}>Explore {data.title}</button>
+                      </a>
+                    </div>
+              </Col>
+            </Row>
+        </Container>}
+      </div>
     )
 }
-
-export default ProductCategory;
