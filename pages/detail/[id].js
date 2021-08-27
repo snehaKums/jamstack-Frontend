@@ -46,14 +46,23 @@ const Details = ({product,mainData}) => {
             <h1 className={styles.detailHeading}>{product.title}</h1>
             <div className={styles.detailImg}>
             <Image
-                   alt={product.image.name}
-                   src={product.image.formats.small.url}
-                  width={400}
-                  height={400}
+                  alt={product.image.name}
+                  src={product.image.formats.medium.url}
+                  width={500}
+                  height={550}
             />
             </div>
-            <p className={styles.detailPrice}>Price : $ {product.price}</p>
+            <p className={styles.detailPrice}>Price : Rs. {product.price}</p>
             <p className={styles.description}>{product.description}</p>
+            <p className={styles.contactDetails}>Contact Details of Seller</p>
+            <div className={styles.contactDiv}>
+              <p className={styles.addressLabel}>Address:</p>
+              <p className={styles.address}>{product.address}</p>
+            </div>
+            <div className={styles.contactDiv}>
+              <p className={styles.phoneNoLabel}>Phone No:</p>
+              <p className={styles.phoneNo}>{product.phoneNo}</p>
+            </div>
           </div>
           {mainData[0].components.map( data => (
               (data.__component == "select.footer") ? 

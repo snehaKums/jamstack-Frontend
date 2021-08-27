@@ -35,7 +35,7 @@ export default function ProductCategory({data}){
                       <h1 className={styles.cardTitle}>{data.title}</h1>
                       <Image
                         alt={data.image.name}
-                        src={data.image.formats.small.url}
+                        src={data.image.formats.medium.url}
                         width={800}
                         height={500}
                       />

@@ -33,10 +33,10 @@ const CarouselComponent = ({data}) => {
         >
           <div className="carouselItem">
           <Image
-            src={item.formats.small.url}
+            src={item.formats.large.url}
             alt={item.name}
-            width={100}
-            height={30}
+            width={1440}
+            height={400}
             layout='responsive'
           />
           </div>

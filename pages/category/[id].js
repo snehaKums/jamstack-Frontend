@@ -44,9 +44,6 @@ const Details = ({data,mainData}) => {
   return (
     <div>
       <Header data={mainData} />
-      {/* {data.products.length === 0 ?
-            <h1 className={styles.noDataFound}>No Products found in this category</h1>
-        : */}
         <Container fluid style={{marginTop:'-5%'}} >
         <Row>
             <Col xs={12} sm={12} md={12} lg={12}>
