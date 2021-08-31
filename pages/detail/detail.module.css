@@ -51,14 +51,14 @@
   border-radius: 12px;
  }
  .cardLink{
-  text-decoration: inherit;
+  text-decoration: none;
   color: inherit;
   cursor: auto;
  }
- .cardLink:visited {
-  text-decoration: inherit;
+ .cardLink:hover {
+  text-decoration: none;
   color: inherit;
-  cursor: auto;
+  cursor:pointer;
 }
  .cardText{
   font-size: 18px;
