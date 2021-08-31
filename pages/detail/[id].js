@@ -57,8 +57,8 @@ const Details = ({product,mainData,productData}) => {
             <Image
                   alt={product.image.name}
                   src={product.image.formats.medium.url}
-                  width={500}
-                  height={550}
+                  width={400}
+                  height={450}
             />
             </div>
             <p className={styles.detailPrice}>Price : Rs. {product.price}</p>
@@ -75,7 +75,7 @@ const Details = ({product,mainData,productData}) => {
             
           </div>
           <div>
-              <h3>Similar Products</h3>
+              <h3 className={styles.similarProducts}>Similar Products</h3>
               <div>
                 <Container fluid>
                   <Row>
@@ -89,8 +89,8 @@ const Details = ({product,mainData,productData}) => {
                             <Image
                                 alt={product.image.name}
                                 src={product.image.formats.small.url}
-                                width={150}
-                                height={170}
+                                width={130}
+                                height={150}
                             />
                               <p className={styles.cardSubtext}>Price: Rs. {product.price}</p>
                               </a>
