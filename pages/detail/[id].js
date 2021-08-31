@@ -4,6 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Layout from '../../components/Layout';
 import styles from './detail.module.css'
+import { Container, Row, Col } from 'reactstrap';
 
 export const getStaticPaths = async () => {
     const res = await axios.get(process.env.API_PRODUCTS_URL);
@@ -27,18 +28,26 @@ export const getStaticProps = async(context) =>{
   const productId = context.params.id;
   const res = await axios.get(process.env.API_MAIN_URL+'/3');
   const data = res.data.products;
-  console.log('000'+data[0].id)
   const resp = await axios.get(process.env.API_MAIN_URL);
   const mainData= resp.data
+  const res1 = await axios.get(process.env.API_PRODUCTS_URL);
+  const productData= res1.data
+
     for(let i=0;i<data.length;i++){
       const product = data[i]
       if(productId == product.id ){
         return{
-          props:{product,mainData}
+          props:{product,mainData,productData}
         }}
     }
 }
-const Details = ({product,mainData}) => {
+const Details = ({product,mainData,productData}) => {
+  let products = [];
+  for(let i=0;i<productData.length;i++){
+    const data = productData[i]
+    if(product.title == data.title ){
+        products.push(data)
+  }}
   return (
     <div>
         <Header data={mainData} />
@@ -62,6 +71,36 @@ const Details = ({product,mainData}) => {
             <div className={styles.contactDiv}>
               <p className={styles.phoneNoLabel}>Phone No:</p>
               <p className={styles.phoneNo}>{product.phoneNo}</p>
+            </div>
+            
+          </div>
+          <div>
+              <h3>Similar Products</h3>
+              <div>
+                <Container fluid>
+                  <Row>
+                    <Col xs={12} sm={12} md={12} lg={12}>
+                    <Row>    
+                    {products[0].product.map(product=>(
+                        <Col key={product.id} md={4} lg={3}>
+                            <div className={styles.card} >
+                              <a  href={'/detail/' + product.id} className={styles.cardLink} >
+                            <h1 className={styles.cardText}>{product.title}</h1>
+                            <Image
+                                alt={product.image.name}
+                                src={product.image.formats.small.url}
+                                width={150}
+                                height={170}
+                            />
+                              <p className={styles.cardSubtext}>Price: Rs. {product.price}</p>
+                              </a>
+                            </div>
+                        </Col>
+                        ))}
+                    </Row>
+                    </Col>
+                  </Row>
+                </Container>
             </div>
           </div>
           {mainData[0].components.map( data => (

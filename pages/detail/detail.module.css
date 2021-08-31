@@ -38,6 +38,35 @@
 .address,.phoneNo{
   font-size: 18px;
 }
+.card{
+  padding: 5px;
+  margin: 20px 2.5px 5px;
+  text-align: center;
+  border: 1px solid lightgray;
+  border-radius: 12px;
+ }
+ .cardLink{
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+ }
+ .cardLink:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+ .cardText{
+  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.cardSubtext{
+  font-size:18px;
+  margin-bottom:2px;
+}
 @media only screen and (max-width: 1024px) {
   .detail{
     text-align: center;
@@ -45,8 +74,15 @@
   .detailPrice{
     text-align: center;
   }
+  .cardText{
+    font-size: 22px;
+  }
 }
 @media only screen and (max-width: 600px) {
+  .cardText{
+    font-size: 24px;
+    text-align: center;
+  }
   .detail{
     text-align: center;
   }
@@ -58,5 +94,9 @@
   }
   .description{
     font-size: 20px;
+  }
+  .cardSubtext{
+    font-size: 20px;
+    text-align: center;
   }
 } 
