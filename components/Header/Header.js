@@ -4,7 +4,6 @@ import Image from 'next/image';
 import styles from './header.module.css'
 
 const Header = ({data}) => {
-  console.log('dataaheader', data);
   return (
 <div  className="bg-gray-800" >
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
