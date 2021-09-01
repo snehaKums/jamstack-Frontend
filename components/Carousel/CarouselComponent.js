@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
+import Image from '../elements/image';
 import {Carousel,CarouselItem,CarouselControl,CarouselIndicators} from 'reactstrap';
 
 const CarouselComponent = ({data}) => {
@@ -24,23 +24,27 @@ const CarouselComponent = ({data}) => {
       setActiveIndex(newIndex);
     }
   
-    const slides = items.map((item) => {
+    const slides = items.map((item, index) => {
       return (
-        <CarouselItem
+       
+            <CarouselItem
           onExiting={() => setAnimating(true)}
           onExited={() => setAnimating(false)}
-          key={item.formats.small.url}
+          key={item?.url}
         >
           <div className="carouselItem">
-          <Image
-            src={item.formats.large.url}
-            alt={item.name}
-            width={1440}
-            height={300}
-            layout='responsive'
-          />
+
+
+<Image
+        media={item?.url} 
+        className="w-full"
+      />
+         
           </div>
         </CarouselItem>
+
+       
+        
       );
     });
   

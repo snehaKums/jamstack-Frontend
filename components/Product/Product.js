@@ -9,7 +9,7 @@ export default function Product({postNum,search}){
             {search.length === 0 ?
             <h1 className={styles.noDataFound}>No Data Found</h1>
         :
-        <Container fluid>
+        <Container fluid className="container">
                     <Row>
                         <Col xs={12} sm={12} md={12} lg={12}>
                         <Row>    
@@ -18,14 +18,17 @@ export default function Product({postNum,search}){
                                 <div className={styles.card}>
                                 <Image
                                     alt={item.image.name}
-                                    src={item.image.formats.small.url}
+                                    src={item.image?.formats.small.url}
                                     width={150}
                                     height={170}
                                     />
                                     <h1 className={styles.cardText}>{item.title}</h1>
                                     <p className={styles.cardSubtext}>Price: Rs. {item.price}</p>
-                                    <a href={'/detail/' + item.id}>
+                                    {/* <a href={'/detail/' + item.id} className=" my-3 btn text-blue-600 with-arrow hover:underline">
                                         <button className={styles.button}>Detail</button>
+                                    </a> */}
+                                     <a href={'/detail/' + item.id} className=" my-3 btn text-blue-600 with-arrow hover:underline">
+                                        Detail
                                     </a>
                                 </div>
                             </Col>

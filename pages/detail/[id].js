@@ -51,9 +51,11 @@ const Details = ({product,mainData,productData}) => {
   return (
     <div>
         <Header data={mainData} />
-          <div className={styles.detail}>
-            <h1 className={styles.detailHeading}>{product.title}</h1>
-            <div className={styles.detailImg}>
+          <div className="container mt-8">
+            <h1 className="text-4xl my-8">{product.title}</h1>
+            <div className="grid grid-cols-3 gap-4">
+
+            <div >
             <Image
                   alt={product.image.name}
                   src={product.image.formats.medium.url}
@@ -61,6 +63,10 @@ const Details = ({product,mainData,productData}) => {
                   height={450}
             />
             </div>
+
+            <div className="col-span-2 pr-4">
+           
+
             <p className={styles.detailPrice}>Price : Rs. {product.price}</p>
             <p className={styles.description}>{product.description}</p>
             <p className={styles.contactDetails}>Contact Details of Seller</p>
@@ -72,10 +78,17 @@ const Details = ({product,mainData,productData}) => {
               <p className={styles.phoneNoLabel}>Phone No:</p>
               <p className={styles.phoneNo}>{product.phoneNo}</p>
             </div>
+
+            </div>
+
+            </div>
+           
+           
+           
             
           </div>
-          <div>
-              <h3 className={styles.similarProducts}>Similar Products</h3>
+          <div className="container mt-8">
+              <h3 className="text-2xl py-4">Similar Products</h3>
               <div>
                 <Container fluid>
                   <Row>

@@ -44,24 +44,27 @@ const Details = ({data,mainData}) => {
   return (
     <div>
       <Header data={mainData} />
-        <Container fluid style={{marginTop:'-5%'}} >
+      {/* {data.products.length === 0 ?
+            <h1 className={styles.noDataFound}>No Products found in this category</h1>
+        : */}
+        <Container fluid className="container mt-8 min-h-screen" >
         <Row>
             <Col xs={12} sm={12} md={12} lg={12}>
-            <Row style={{marginTop:'2%'}}>                    
+            <Row>                    
                 {data.products != undefined ? 
                 data.products.map(item => (
                   <Col key={item.id} md={4} lg={3}>
                       <div className={styles.card}>
                       <Image
                           alt={item.image.name}
-                          src={item.image.formats.small.url}
+                          src={item.image.formats.small?.url}
                           width={150}
                           height={170}
                           />
                           <h1 className={styles.cardText}>{item.title}</h1>
                           <p className={styles.cardSubtext}>Price: $ {item.price}</p>
-                          <a href={'/detail/' + item.id}>
-                              <button className={styles.detailButton}>Detail</button>
+                          <a href={'/detail/' + item.id } className=" my-3 btn text-blue-600 with-arrow hover:underline">
+                              Detail
                           </a>
                       </div>
                   </Col>

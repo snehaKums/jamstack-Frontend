@@ -12,9 +12,8 @@ export default function Other({aboutData,mainData,data}) {
         return (
             <Layout pageTitle="ShopSite">
                 <Header data={mainData} />
-                <div>
-                    <h2>{data.title}</h2>
-                </div>
+            <div className="container">
+                
                 {aboutData.map( data => (
                     (data.__component == "select.rich-text") ? 
                     <div>
@@ -51,18 +50,20 @@ export default function Other({aboutData,mainData,data}) {
                     : 
                     null
                  ))}
+                   {aboutData.map( data => (
+                    (data.__component == "select.categories") ? 
+                        <ProductCategory data={data} />
+                    : 
+                    null
+                 ))}
+                 </div>
                 {aboutData.map( data => (
                     (data.__component == "select.footer") ? 
                         <Footer data={data} /> 
                     : 
                     null
                  ))}
-                 {aboutData.map( data => (
-                    (data.__component == "select.categories") ? 
-                        <ProductCategory data={data} />
-                    : 
-                    null
-                 ))}
+               
                
             </Layout>
         

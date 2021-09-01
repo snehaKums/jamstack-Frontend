@@ -1,52 +1,56 @@
-
-import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import Image from 'next/image';
 import styles from '../Product/product.module.css'
+import Image from '../elements/image';
 
-export default function ProductCategory({data}){
+
+const ProductCategory =({data}) => {
     return(
-       <div>
-        {data.id % 2 ?
-        <Container fluid>
-        <Row>                    
-          <Col key={data.id} lg={6} className={styles.colContainer}>
-                <div className={styles.card}>
-                  <h1 className={styles.cardTitle}>{data.title}</h1>
-                  <Image
-                    alt={data.image.name}
-                    src={data.image.formats.small.url}
-                    width={600}
-                    height={300}
-                  />
-                  <p className={styles.cardDetail}>{data.detail}</p>
-                  <a href={'/category/' + data.id}>
-                    <button className={styles.exploreButton}>Explore {data.title}</button>
-                  </a>
-                </div>
-          </Col>
-        </Row>
-    </Container>
-    :
-    <Container fluid>
-            <Row>                    
-              <Col key={data.id} lg={6}>
-                    <div className={styles.card}>
-                      <h1 className={styles.cardTitle}>{data.title}</h1>
-                      <Image
-                        alt={data.image.name}
-                        src={data.image.formats.medium.url}
-                        width={600}
-                        height={300}
-                      />
-                      <p className={styles.cardDetail}>{data.detail}</p>
-                      <a href={'/category/' + data.id}>
-                        <button className={styles.exploreButton}>Explore {data.title}</button>
-                      </a>
-                    </div>
-              </Col>
-            </Row>
-        </Container>}
+    <div className="container">
+    {
+        data.id % 2 ?
+        <div className="flex-1 text-lg heroComponent">
+          <div className="imgStyle">
+    
+      <Image
+        media={data.image.url} 
+        className="flex-shrink-0 object-contain w-full md:w-6/12 mt-6 md:mt-0"
+      />
+
+          </div>
+          <div className="textStyle pl-4">
+          <h3 className="font-light text-4xl mb-6">{data.title}</h3>
+                 <p className="text-xl ">{data.detail}</p>
+                 <a href={'/category/' + data.id} className="mt-4">
+               
+               <div className="mt-8 btn text-blue-600 with-arrow hover:underline">
+               {data.title}
+             </div>
+             </a>
+          </div>
+        </div>
+        :
+        <div className="heroComponent flex-1">
+          <div className="textStyle pr-4">
+          <h3 className="font-light text-4xl mb-6">{data.title}</h3>
+              <p className="text-base text-xl">{data.detail}</p>
+              <a href={'/category/' + data.id} className="mt-4">
+               
+                <div className="mt-8 btn text-blue-600 with-arrow hover:underline">
+                {data.title}
+              </div>
+              </a>
+           
+          </div>
+          <div className="imgStyle">
+
+        <Image
+          media={data.image.url} 
+          className="flex-shrink-0 object-contain w-full md:w-6/12 mt-6 md:mt-0"
+        /> 
       </div>
+      </div>
+    }
+     </div>
     )
 }
+
+export default ProductCategory;
